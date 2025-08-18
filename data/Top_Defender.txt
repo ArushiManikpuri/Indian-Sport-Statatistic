@@ -1,0 +1,5 @@
+1	Manjeet_Chillar		Tamil_Thalaivas	108	339	324
+2	Ravinder_Pahal		Dabang_Delhi	112	326	307
+3	Fazel_Atrachali		U_Mumba	103	317	297
+4	Sandeep_Narwal		U_Mumba	125	310	282
+5	PO_Surjeet_Singh	Puneri_Paltan	94	278	260

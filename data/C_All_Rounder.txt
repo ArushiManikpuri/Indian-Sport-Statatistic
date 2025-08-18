@@ -1,0 +1,6 @@
+1	Andre_Russell	30 826 41.3 36	26 15 23
+2	Hardik_Pandya	33 687 34.35 34 25	23 12
+3	Sunil_Narine	31 510 19.62 17 27	7 12
+4	Moeen_Ali	    16 297 24.75 16 9 6 23
+5	Krunal_Pandya	34 518 22.52 13 24	7 2
+6	Riyan_Parag	    7 160 126.98 12 8 60 1

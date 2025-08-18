@@ -1,0 +1,5 @@
+1	Pardeep_Narwal		Patna_Pirates		107	1160	880
+2	Rahul_Chaudhari		Tamil_Thalaivas		122	955	788
+3	Deepak_Niwas_Hooda	Jaipur_Pink_Panthers	123	856	698
+4	Ajay_Thakur		Tamil_Thalaivas		115	790	640
+5	Maninder_Singh		Bengal_Warriors		79	731	586
