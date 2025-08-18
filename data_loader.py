@@ -1,4 +1,4 @@
-from models import Batsman,Bowler,Keeper,c_All_Rounder, rider, defender
+from models import Batsman,Bowler,Keeper,CAllRounder,AllRounder, Rider, Defender, KAllRounder, Footballer
 
 def load_batsman(filepath) -> list[Batsman]:
     batsman_list = []
@@ -141,4 +141,48 @@ def load_defender(filepath) -> list[defender]:
     return defender_list
 
 
+def load_k_allrounder(filepath) -> list[k_all_rounder]:
+    k_rounder_list = []
+    with open(filepath, "r") as file:
+        
+        for line in file:
+            if not line.strip():
+                continue
+            data = line.strip().split()
 
+            rank = data[0]
+            name = data[1]
+            current_team = data[2]
+            match_played = data[3]
+            total_points = data[4]
+
+            k_allrounder = k_all_rounder(name, "Male", "DOB", "India", match_played, "None",
+        rank, total_points, current_team) 
+            k_rounder_list.append(k_allrounder)
+    return k_rounder_list    
+
+#self, name, gender, dob, nationality, match_played, award, rank, points, current_team
+
+def loader_footballer(filepath) -> list[footballer]:
+    footballer_list = []
+
+    with open(filepath, "r") as file:
+
+        for line in file:
+            if not line.strip():
+                continue
+            data = line.strip().split()
+
+            rank = data[0]
+            name = data[1]
+            goal = data[2]
+            red_card = data[3]
+            yellow_card = data[4]
+            assists = data[5]
+
+            Footballer = footballer(name, "Male", "DOB", "India", "None", "None", 
+            goal, assists, red_card, yellow_card, rank)
+#(self, name, gender, dob, nationality, match_played, award, goal, assists, red_card, yellow_card, rank)
+            footballer_list.append(Footballer)
+
+    return footballer_list    
