@@ -1,4 +1,4 @@
-from dataclass import dataclass
+from dataclass import dataclass, asdict
 from datetime import date
 
 def _ensure_date(d : data | str) -> date:
@@ -60,6 +60,7 @@ class BatsmanStats:
                 raise ValueError("f(n) cannot be negative")
         if self.strike_rate < 0:
             raise ValueError("f strike_rate cannot be negative")
+@dataclass(frozen = True)            
 class BowlerStats:
         innings: int
         wicket: int
@@ -67,14 +68,33 @@ class BowlerStats:
         overs: int
         runs: int
         rank: Optional[int]
-    def display(self):
-        super().display()
-        print(f"Rank: {self.rank}")
-        print(f"Innings played: {self.innings}")
-        print(f"wicket: {self.wicket}")
-        print(f"strike_rate: {self.strike_rate}")
-        print(f"overs: {self.overs}")
-        print(f"runs: {self.runs}")           
+        def __post_init(self):
+            if n in ("runs", "innings", "six", "four", "hundreds", "fifties", "rank"):
+                if getattr(self, n) < 0: #getattr(object, "attribute_name", default)  
+                    raise ValueError("f(n) cannot be negative")
+            if self.strike_rate < 0:
+                raise ValueError("f strike_rate cannot be negative")                    
+@dataclass(frozen = True)
+class Keeper:
+        wicket: int
+        innings: int
+        rank: Optional[int]
+
+        def __post_init(self) -> None:
+            if self.wicket < 0 or self.innings < 0:
+                raise ValueError("f Keeper fields cannot be empty")
+@dataclass(frozen = True)
+class Footballer:
+        goal: int
+        assists: int
+        red_card: int
+        yellow_card: int
+        rank: Optinal[int]
+    
+        def __post_init(self) -> None:
+            if n in ("goal", "assists", "red_card", "yellow_card", "rank"):
+                raise ValueError("f Footballer fields cannot be empty")
+----------------composed player Roles -----------------
 class Batsman(Player):
     def __init__(self, name, gender, dob, nationality, match_played, award, runs, innings, six, four, hundreds, fifties, strike_rate, rank):
         super().__init__(name, gender, dob, nationality, match_played, award)        
